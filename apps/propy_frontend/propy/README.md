@@ -1,4 +1,4 @@
-# Propy
+# Propy as Angular app
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
 Run `npm i` to install all deps of this project.
