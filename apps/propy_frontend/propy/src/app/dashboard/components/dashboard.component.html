@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="dashboard">
+    <div class="header is-flex is-align-items-center is-justify-content-space-between">
+      <div class="is-size-2-desktop is-size-4-mobile">
+        <strong>PRO</strong>py
+      </div>
+      <div class="header__user is-flex is-align-items-center">
+        <i class="is-size-2-desktop is-size-4-mobile fa fa-user-circle mr-2"></i>
+        <span>{{ user?.name}}</span>
+      </div>
+    </div>
+    <div class="body">
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <button (click)="test($event)">Authenticated call</button>
+        </div>
+        <div class="column"></div>
+      </div>
+    </div>
+  </div>
+</div>

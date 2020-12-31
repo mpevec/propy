@@ -1,0 +1,22 @@
+.dashboard {
+  background-color: #fff;
+  height: calc(100vh - 4em); /* bottom -4em */
+  margin-top: 2em;  /* top margin pushes everything down so we achieve 2em everywhere */
+  border: 1px solid #757763;
+  border-radius: 6px;
+
+  .header {
+    border-bottom: 1px solid #EFF0EB;
+    padding: 0.375rem 1rem;
+
+    .header__user {
+      i {
+        color: #5D7B6F;
+      }
+    }
+  }
+
+  .body {
+    padding: 1rem;
+  }
+}

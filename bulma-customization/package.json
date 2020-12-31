@@ -1,0 +1,20 @@
+{
+  "name": "mybulma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sass/propy-bulma-styles.scss",
+  "scripts": {
+    "css-build": "node-sass --omit-source-map-url sass/propy-bulma-styles.scss css/propy-bulma-styles.css",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch"
+  },
+  "author": "Matthieu Labs SRL",
+  "license": "ISC",
+  "devDependencies": {
+    "bulma": "^0.9.1",
+    "node-sass": "^5.0.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1"
+  }
+}

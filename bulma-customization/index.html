@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My custom Bulma website</title>
+    <link rel="stylesheet" href="css/propy-bulma-styles.css">
+    <!-- TEMP START -->
+    <!-- Here we are using temp styles for testing bulma customizations -->  
+    <style>
+      .login {
+        height: 100vh;
+        background: url("/images/login-bckgr.png") no-repeat;
+        background-size: cover;
+      }
+    </style>
+    <!-- TEMP END -->
+  </head>
+  <body>
+    <div class="login">
+      <div class="container">
+        <nav class="is-flex is-justify-content-space-between is-align-items-center mb-2">
+          <span class="is-size-2-desktop is-size-4-mobile">
+            <strong>PRO</strong>py
+          </span>
+          <div>
+            <ul class="is-flex">
+              <li>
+                <a href="">About us</a>
+              </li>
+              <li class="ml-3">
+                <a href="">Register</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="is-flex is-justify-content-center mt-4">
+          <nav class="panel is-primary">
+            <p class="panel-heading">
+              Login
+            </p>
+            <div class="panel-block is-flex-direction-column is-size-3">
+              <div>Welcome back.</div>
+              <div>Lets login.</div>
+            </div>
+            <div class="panel-block">
+              <form>
+                <div class="field">
+                  <label class="label">Your username</label>
+                  <div class="control has-icons-left has-icons-right">
+                    <input class="input is-success" type="text" placeholder="" value="">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-user"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">And your password</label>
+                  <div class="control has-icons-left has-icons-right">
+                    <input class="input is-success" type="password" placeholder="" value="">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-key"></i>
+                    </span>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="panel-block is-flex-direction-column">
+              <button class="button is-primary">Login</button>
+              <a class="mt-3" href="">Forgot your password?</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
