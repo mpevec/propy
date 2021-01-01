@@ -1,13 +1,12 @@
 defmodule Mix.Tasks.PrepareStatic do
   use Mix.Task
   use OkJose
-  @shortdoc "Custom!"
+  @shortdoc " --- Copy frontend build ---"
   
   # Because mix always runs from root, File.cwd will return root of the project
   @destination "#{File.cwd!}/priv/static/"
   
   def run(args) do
-    # todo, we could pipe even more
     case prepare(args) do
       {:ok, data} -> transfer(data) |> output_result
       {:error, error} -> IO.puts(error)
@@ -21,7 +20,7 @@ defmodule Mix.Tasks.PrepareStatic do
     File.rm_rf!(destination)
     File.mkdir!(destination)  # because with rm_rf we remove also folder itslef
     IO.puts "Copying from #{source} to #{destination}..."
-    result = File.cp_r(source, destination)
+    File.cp_r(source, destination)
   end
 
   defp prepare(args) do
@@ -33,11 +32,11 @@ defmodule Mix.Tasks.PrepareStatic do
     |> Pipe.ok
   end
 
-  defp put_change(data, key, {:ok, value} = tupple) do
+  defp put_change(data, key, {:ok, value}) do
     {:ok, Map.put(data, key, value)}
   end
 
-  defp put_change(data, key, {:error, error} = tupple) do
+  defp put_change(_, _, tupple) do
     tupple
   end
 

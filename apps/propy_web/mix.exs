@@ -22,6 +22,7 @@ defmodule PropyWeb.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:ok_jose, "~> 3.0.0"},
       {:plug_cowboy, "~> 2.0"},
       {:jason, "~> 1.2"},

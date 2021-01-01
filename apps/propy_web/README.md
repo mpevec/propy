@@ -1,21 +1,13 @@
 # PropyWeb
 
-**TODO: Add description**
+Web server serving static frontend app. It contains a custom mix task, which takes static frontend files and copy them to *document root* for serving. Check *Usage* below.
 
-## Installation
+## Development
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `propy_web` to your list of dependencies in `mix.exs`:
+Change the mix/tasks sources and run *mix compile*.
+Afterwards when running *mix help* you can see custom tasks (e.g. *prepare_static*).
 
-```elixir
-def deps do
-  [
-    {:propy_web, "~> 0.1.0"}
-  ]
-end
-```
+## Usage
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/propy_web](https://hexdocs.pm/propy_web).
-
+Call the mix task:
+**mix prepare_static --s ../propy_frontend/propy/dist/propy**

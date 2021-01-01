@@ -7,13 +7,14 @@ defmodule PropyWeb.Application do
   require Logger
 
   def start(_type, _args) do
-    Logger.info("Starting propy-web.." <> Application.app_dir(:propy_web))
+    port = Application.fetch_env!(:propy_web, :cowboy_port)
+    Logger.info("Starting propy-web on port: #{port}...")
 
     children = [
       {Plug.Cowboy,
        scheme: :http,
        plug: PropyWeb.Plug,
-       options: [port: 4002]}
+       options: [port: port]}
     ]
 
     opts = [strategy: :one_for_one, name: PropyWeb.Supervisor]
