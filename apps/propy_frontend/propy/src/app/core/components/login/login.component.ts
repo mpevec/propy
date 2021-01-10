@@ -16,7 +16,7 @@ export class LoginComponent {
 
   constructor() {
     this.form = new FormGroup({
-      username: new FormControl('john.doe@hey.com'),
+      username: new FormControl('janez.novak@hey.com'),
       password: new FormControl('abc123'),
     });
   }

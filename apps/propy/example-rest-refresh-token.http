@@ -1,0 +1,4 @@
+GET http://localhost:4001/api/login/refresh_token HTTP/1.1
+content-type: application/json
+Cookie: refresh_token=7d044f96-ee85-4bb8-b088-54afb6d15109
+
