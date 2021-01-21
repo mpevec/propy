@@ -5,7 +5,7 @@ config :logger, :console,
   metadata: :all
 
 config :adcrawler, Adcrawler.Repo,
-  url: "ecto://propy_user:pr272@localhost/propy"  
+  url: "ecto://propy_user:pr272@localhost:5432/propy"  
 
 config :adcrawler,
   ecto_repos: [Adcrawler.Repo]  
