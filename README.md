@@ -17,32 +17,59 @@ Please check README.md file of a specific app in its main directory.
 Some useful and common commands used across applications.
 
 Listing all images:
-**docker images -a**
 
-Removing all images:
-**docker rmi $(docker images -a -q)**
+```Elixir
+docker images -a
+```
 
-Check running containers:
-**docker ps -a**
+Removing all the docker images:
 
-Removing running containers (by its container id):
-**docker rm 0bb2bdcf548f**
+```Elixir
+docker rmi $(docker images -a -q)
+```
+
+Check the running containers:
+
+```Elixir
+docker ps -a
+```
+
+Removing the running containers (by its container id):
+
+```Elixir
+docker rm 0bb2bdcf548f
+```
 
 Connecting to the running container with name YYY:
-**docker exec -it YYY bash**
+
+```Elixir
+docker exec -it YYY bash
+```
 
 ## Postgresql system queries
 
+```Elixir
 SHOW data_directory;
-/Library/PostgreSQL/9.6/data
 
+# /Library/PostgreSQL/9.6/data
+```
+
+```Elixir
 SHOW hba_file;
-/Library/PostgreSQL/9.6/data/pg_hba.conf
+
+# /Library/PostgreSQL/9.6/data/pg_hba.conf
+```
 
 ## Postgresql thingies
 
-First work as another user:
-**sudo -u postgres bash**
+Switching to postgres user to change postgres settings or logging into server as superuser:
 
-Reloading the config:
-**PGDATA=/Library/PostgreSQL/9.6/data ./pg_ctl reload**
+```Elixir
+sudo -u postgres bash
+```
+
+Reloading the config (on OSX):
+
+```Elixir
+PGDATA=/Library/PostgreSQL/9.6/data ./pg_ctl reload
+```
