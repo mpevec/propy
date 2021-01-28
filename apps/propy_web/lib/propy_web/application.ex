@@ -10,6 +10,9 @@ defmodule PropyWeb.Application do
     port = Application.fetch_env!(:propy_web, :cowboy_port)
     Logger.info("Starting propy-web on port: #{port}...")
 
+    upstream = URI.parse(Application.fetch_env!(:propy_web, :upstream))
+    Logger.info("Proxying to upstream #{inspect(upstream)})")
+    
     children = [
       {Plug.Cowboy,
        scheme: :http,

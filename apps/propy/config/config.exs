@@ -10,13 +10,6 @@ config :propy,
   jwt_expiration_in_minutes: 30,
   jwt_secret_hs256_signature: "asdwf12!weWEFWEWEFdfw123fweWEF!!Dcwcw?"
 
-  # 4200 is default ng serve port;
-  # 4002 is default propy-web
-config :cors_plug,
-  origin: ["http://localhost:4200", "http://localhost:4002"],
-  max_age: 86400,
-  methods: ["GET", "POST", "PATCH", "DELETE", "PUT"]
-
 config :propy, Propy.Repo,
   url: "ecto://propy_user:pr272@localhost/propy"  
 

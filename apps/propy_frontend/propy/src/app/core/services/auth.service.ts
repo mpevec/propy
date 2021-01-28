@@ -12,7 +12,9 @@ export class AuthService {
 
   public test(): Observable<any> {
     const url = `${environment.baseUrl}/api/greetings`;
-    return this.httpClient.get(url);
+
+    // we can remove withCredentials, cause we need to send silent refresh uuid only with refresh_token
+    return this.httpClient.get(url, { withCredentials: true });
   }
 
   public refreshToken(): Observable<{ jwt: string }> {

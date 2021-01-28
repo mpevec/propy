@@ -1,6 +1,6 @@
 defmodule Propy.Router do
   @moduledoc """
-    Basic router for this app using CORS and Jason
+    Basic router for this app
   """
   use Plug.Router
 
@@ -10,11 +10,10 @@ defmodule Propy.Router do
 
   import Plug.Conn
 
-  # forward("/api/greetings", to: Greetings)
+  forward("/api/greetings", to: Greetings)
   forward("/api/login", to: Login)
 
   plug(Plug.Logger, log: :debug)
-  plug CORSPlug
   plug(:match)
   # put that in module const like u have required fields
   # plug(JwtExample.Plug.Auth, public_paths: ["/api/login", "/api/login/refresh_token"])

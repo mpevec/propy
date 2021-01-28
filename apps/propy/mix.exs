@@ -22,7 +22,6 @@ defmodule Propy.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:cors_plug, "~> 2.0"},
       {:plug_cowboy, "~> 2.0"},
       {:jason, "~> 1.2"},
       {:jose, "~> 1.10.1"},

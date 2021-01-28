@@ -2,6 +2,7 @@ defmodule Propy.Adapter.LoginTracker.Db do
   @moduledoc """
     Implementation of ITrackLogin with DB  
   """
+  require Logger
   import Ecto.Query
   alias Propy.Domain.ITrackLogin
   alias Propy.Model.Token
@@ -26,13 +27,13 @@ defmodule Propy.Adapter.LoginTracker.Db do
       |> case do
         {:ok, _} -> {:ok, %Token{token | uuid: uuid}}
         _ = error ->
-          # TODO: log error
+          Logger.error("#{inspect(error)}")
           error
       end
   end
 
   @impl ITrackLogin
-  def get_logged_user(refresh_token, at_time \\ DateTime.utc_now()) do
+  def get_logged_user(refresh_token, at_time) when is_binary(refresh_token) do
     q = from ul in AppUserLogin,
     join: u in assoc(ul, :appuser),
     where: ul.uuid == ^refresh_token and
@@ -40,10 +41,14 @@ defmodule Propy.Adapter.LoginTracker.Db do
     preload: [appuser: u]
 
     app_user_login = Repo.one(q)
-    if app_user_login do
-      {:ok, Map.get(app_user_login, :appuser)}
-    else
+    if is_nil(app_user_login) do
       {:error, "No result found for refresh token: #{refresh_token}"}
+    else
+      {:ok, Map.get(app_user_login, :appuser)}
     end
+  end
+
+  def get_logged_user(refresh_token, _at_time) when is_nil(refresh_token) do
+    {:error, "No refresh_token found!"}
   end
 end

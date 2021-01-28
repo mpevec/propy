@@ -22,7 +22,7 @@ defmodule Propy.Domain.UserAuthentication do
   @spec refresh(String.t()) :: {:ok, Token.t()} | {:error, any}
   def refresh(refresh_token) do
     {:ok, refresh_token}
-    |> @login_tracker.get_logged_user
+    |> @login_tracker.get_logged_user(DateTime.utc_now())
     |> @token_manager.create
     |> @login_tracker.track
     |> Pipe.ok

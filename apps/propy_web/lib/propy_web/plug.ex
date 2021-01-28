@@ -1,5 +1,12 @@
 defmodule PropyWeb.Plug do
   use Plug.Router
+  require Logger
+
+  forward("/api",
+    to: ReverseProxyPlug,
+    upstream: &__MODULE__.get_upstream/0,
+    error_callback: &__MODULE__.log_reverse_proxy_error/1
+  )
 
   plug Plug.Static,
     at: "/",
@@ -10,9 +17,17 @@ defmodule PropyWeb.Plug do
 
   # Because its SPA we always serve index page
   match _ do
-    # send_resp(conn, :not_found, "")
     conn = put_resp_content_type(conn, "text/html")
-    send_file(conn, 200, "priv/static/index.html")
+    send_file(conn, 200, Application.app_dir(:propy_web, "priv/static/index.html"))
+  end
+
+  def get_upstream do
+    # "http://docker:4001/api"
+    Application.fetch_env!(:propy_web, :upstream)
+  end
+
+  def log_reverse_proxy_error(error) do
+    Logger.error("Network error: #{inspect(error)}")
   end
 
 end

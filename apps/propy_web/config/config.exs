@@ -5,6 +5,7 @@ config :logger, :console,
   metadata: :all
 
 config :propy_web,
-  cowboy_port: 4002
+  cowboy_port: 8080,
+  upstream: "//127.0.0.1:4001/api"
   
 import_config "#{Mix.env()}.exs"

@@ -23,6 +23,7 @@ defmodule PropyWeb.MixProject do
   defp deps do
     [
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
+      {:reverse_proxy_plug, "~> 1.3.2"},
       {:ok_jose, "~> 3.0.0"},
       {:plug_cowboy, "~> 2.0"},
       {:jason, "~> 1.2"},

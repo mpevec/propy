@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start-mock": "concurrently --kill-others \"npm run start-json-server\" \"npm run start-serve-proxy\"",
+    "start-mock": "concurrently --kill-others \"npm run start-json-server\" \"npm run start-serve-mock\"",
     "start-dev": "npm run start-serve-dev",
-    "build": "ng build --aot -c=dev",
+    "build": "ng build --aot --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start-serve-dev": "ng serve -c=dev",
-    "start-serve-proxy": "ng serve --proxy-config proxy.conf.json",
+    "start-serve-dev": "ng serve -c=dev --proxy-config proxy-dev.conf.json",
+    "start-serve-mock": "ng serve --proxy-config proxy-mock.conf.json",
     "start-json-server": "nodemon src/mock/server.js --watch src/mock/server.js"
   },
   "private": true,
